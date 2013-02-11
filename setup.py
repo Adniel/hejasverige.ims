@@ -5,8 +5,8 @@ version = '1.0'
 
 setup(name='hejasverige.ims',
       version=version,
-      description="Heja Sverige Instant Messages",
-      long_description=open("README.txt").read() + "\n" +
+      description="Heja Sverige IMS",
+      long_description=open("README.md").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
@@ -17,7 +17,7 @@ setup(name='hejasverige.ims',
       keywords='',
       author='',
       author_email='',
-      url='http://svn.plone.org/svn/collective/',
+      url='http://www.swedwise.se/hejasverige/',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['hejasverige'],

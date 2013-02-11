@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="Heja Sverige IMS: Send Message" acquire="False">
+      <role name="Manager" />
+      <role name="Member" />
+    </permission>
+    <permission name="Heja Sverige IMS: Send Message to Any" acquire="False">
+      <role name="Manager" />
+    </permission>
+    <permission name="Heja Sverige IMS: Send Message to Many" acquire="False">
+      <role name="Manager" />
+    </permission>
+    <permission name="Heja Sverige IMS: Use System" acquire="False">
+      <role name="Manager" />
+      <role name="Member" />
+    </permission>
+  </permissions>
+</rolemap>

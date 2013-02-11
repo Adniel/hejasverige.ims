@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="hejasverige.ims" version="20120211"
+               handler="hejasverige.ims.setuphandlers.setupHejaSverigeIMS"
+               title="Heja Sverige IMS configuration">
+    Setup Heja Sverige IMS
+  </import-step>
+</import-steps>

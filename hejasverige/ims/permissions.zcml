@@ -1,0 +1,24 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="Five">
+
+  <permission
+      id="hejasverige.ims.UseSystem"
+      title="Heja Sverige IMS: Use System"
+      />
+
+  <permission
+      id="hejasverige.ims.SendMessage"
+      title="Heja Sverige IMS: Send Message"
+      />
+
+  <permission
+      id="hejasverige.ims.SendMessageToAny"
+      title="Heja Sverige IMS: Send Message to Any"
+      />
+
+  <permission
+      id="hejasverige.ims.SendMessageToMany"
+      title="Heja Sverige IMS: Send Message to Many"
+      />
+
+</configure>
