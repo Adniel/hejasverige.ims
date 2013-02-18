@@ -2,7 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      lang="en"
+      lang="se"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="plone">
 
@@ -36,10 +36,10 @@
         <tal:noAuthor condition="not: authorinfo">
         <dl class="portalMessage error">
             <dt i18n:translate="">
-                Error
+                Fel
             </dt>
             <dd i18n:translate="text_no_user_by_name">
-                No user by that name.
+                Det finns ingen användare med detta namn.
             </dd>
         </dl>
         </tal:noAuthor>
@@ -62,12 +62,12 @@
                 tal:define="url_quote_plus python:modules['Products.PythonScripts.standard'].url_quote_plus;
                             memberurl python:url_quote_plus(member.getId())"
                tal:attributes="href string:${portal_url}/author/${memberurl}"
-               i18n:translate="label_view">View</a>
+               i18n:translate="label_view">Visa</a>
           </li>
           <li>
             <a href=""
                tal:attributes="href string:${portal_url}/personalize_form"
-               i18n:translate="label_edit">Edit</a>
+               i18n:translate="label_edit">Redigera</a>
           </li>
         </ul>
 
@@ -96,14 +96,14 @@
             <div class="newmessage" tal:condition="not:isOwner" i18n:domain="IMS">
               <img src="++resource++message_icon.gif" alt="send message" i18n:attributes="alt" />
               <a tal:attributes="href string:${portal_url}/newMessage?receiver=${author}" i18n:translate="">
-                 send message
+                 skicka meddelande
               </a>
             </div>
 
             <div class="discreet">
                 <tal:location condition="authorinfo/location"
                               i18n:translate="text_location">
-                    Location:
+                    Plats:
                     <span tal:content="authorinfo/location"
                           tal:omit-tag=""
                           i18n:name="location">
@@ -113,7 +113,7 @@
 
                 <tal:language condition="authorinfo/language">
                 &mdash;
-                <span i18n:translate="label_main_language">Main Language:</span>
+                <span i18n:translate="label_main_language">Språk:</span>
                 <span tal:replace="authorinfo/language">Some language</span>
                 </tal:language>
             </div>
@@ -162,7 +162,7 @@
                                condition="author_content">
         
                 <h2 i18n:translate="heading_author_content">
-                    Latest content created by this user
+                    Senaste artiklarna från användaren
                 </h2>
                 
                 <div metal:define-macro="user_content_listing">
@@ -179,7 +179,7 @@
                                             content_type_ content_by_type/portal_type;
                                             type_title python: getTypeInfo(content_type_) or None"
                                 tal:content="python:type_title and type_title.Title() or content_type_ + ' is not available'">
-                                Type
+                                Typ
                             </th>
                         </tr>
                         <tal:repeat repeat="item content_by_type/content_items">
@@ -188,8 +188,8 @@
                                     <a href="" tal:attributes="href item/getURL"
                                        tal:content="item/pretty_title_or_id">title</a>
                                 </td>
-                                <td tal:content="python:toLocalizedTime(item.Date)">
-                                    Date
+                                <td tal:content="python:here.toLocalizedTime(item.Date)">
+                                    Datum
                                 </td>
                             </tr>
                         </tal:repeat>
@@ -198,12 +198,12 @@
                 </table>
                 </div>
 
-                <a href=""
+                <!--a href=""
                    tal:attributes="href string:$here_url/search?Creator=${author}&amp;sort_on=Date&amp;sort_order=reverse"
                    i18n:translate="go_to_search_author_content">
-                    All content created by 
+                    Allt innehåll skapat av 
                     <span i18n:name="user" tal:omit-tag="" tal:content="python:authorinfo['fullname'] or author"/>&hellip;
-                </a>
+                </a-->
 
             </tal:authorContent>
 

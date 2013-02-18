@@ -34,9 +34,9 @@ class ReceivedMessageFolder(BaseMessageFolder):
     
     def Title(self):
         try:
-            return translate(_('title_receivedmessagefolder', default=u'Received Messages'), context=self.REQUEST)
+            return translate(_('title_receivedmessagefolder', default=u'Mottagna Meddelanden'), context=self.REQUEST)
         except:
-            return u'Received Messages'
+            return u'Mottagna Meddelanden'
     
 class SentMessageFolder(BaseMessageFolder):
     """ The folder holding sent messages
@@ -47,9 +47,9 @@ class SentMessageFolder(BaseMessageFolder):
     
     def Title(self):
         try:
-            return translate(_('title_sentmessagefolder', default=u'Sent Messages'), context=self.REQUEST)
+            return translate(_('title_sentmessagefolder', default=u'Skickade Meddelanden'), context=self.REQUEST)
         except:
-            return u'Sent Messages'
+            return u'Skickade Meddelanden'
     
 registerType(ReceivedMessageFolder, PROJECTNAME)
 registerType(SentMessageFolder, PROJECTNAME)

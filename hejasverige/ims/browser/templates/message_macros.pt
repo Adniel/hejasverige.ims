@@ -1,29 +1,29 @@
 <tal:message metal:define-macro="message" i18n:domain="hejasverige.ims">
   <dl class="messageHeader">
-    <dt tal:condition="view/sender"><tal:from i18n:translate="">From</tal:from>:</dt>
+    <dt tal:condition="view/sender"><tal:from i18n:translate="">Från</tal:from>:</dt>
     <dd tal:condition="view/sender">
       <a href="" tal:condition="view/sender" tal:content="python:view.sender.get('fullname', '') or view.sender.get('username', '')" 
                  tal:attributes="href string:${portal_url}/author/${view/sender/username|view/sender}"
                  tal:omit-tag="not: view/sender/username|nothing">
-        Sender Name
+        Avsändare
       </a>
     </dd>
-    <dt><tal:to i18n:translate="">To</tal:to>:</dt>
+    <dt><tal:to i18n:translate="">Till</tal:to>:</dt>
     <dd>
       <tal:receiver repeat="receiver view/receiver">
       <a href="" tal:content="python:receiver.get('fullname', '') or receiver.get('username', '')" tal:attributes="href string:${portal_url}/author/${receiver/username|receiver}" tal:omit-tag="not: receiver/username|nothing">
-        Receiver Name
+        Mottagare
       </a><tal:sep condition="not: repeat/receiver/end">,</tal:sep>
       </tal:receiver>
     </dd>
-    <dt><tal:date i18n:translate="">Date</tal:date>:</dt>
+    <dt><tal:date i18n:translate="">Datum</tal:date>:</dt>
     <dd tal:content="view/date">
       2008/07/23 15:22
     </dd>
   </dl>
   <p>
     <pre tal:content="context/getMessage" class="messageBody">
-      The message
+      Meddelande
     </pre>
   </p>
 </tal:message>
@@ -33,29 +33,29 @@
     tal:condition="view/getMessageThread|nothing" i18n:domain="hejasverige.ims">
 <tal:thread tal:repeat="message view/getMessageThread|nothing">
   <dt tal:attributes="class python:message['received'] and 'received' or 'sent'">
-    <strong tal:content="message/title">Title</strong>
+    <strong tal:content="message/title">Titel</strong>
     <span class="documentByLine">
       <tal:sent tal:condition="message/sent" i18n:translate="thread_label_sent">
-        sent to
+        skickat till
         <tal:receiver repeat="receiver message/receiver" i18n:name="name">
         <a href="" tal:content="python:receiver.get('fullname', '') or receiver.get('username', '')" tal:attributes="href string:${portal_url}/author/${receiver/username|nothing}" tal:omit-tag="not: receiver/username|nothing">
-          Receiver Name
+          Mottagare
         </a><tal:sep condition="not: repeat/receiver/end">,</tal:sep>
         </tal:receiver> - <span class="date" i18n:name="date" tal:content="message/created">2008/07/23 15:22</span>
       </tal:sent>
       <tal:received tal:condition="message/received" i18n:translate="thread_label_received">
-        received from
+        mottaget från
         <a href="" tal:condition="message/sender" tal:content="python:message.get('sender', {}).get('fullname', '') or message.get('sender', {}).get('username', '')" 
                    tal:attributes="href string:${portal_url}/author/${message/sender/username|message/sender}"
                    tal:omit-tag="not: message/sender/username|nothing" i18n:name="name">
-          Sender Name
+          Avsändare
         </a> - <span class="date" i18n:name="date" tal:content="message/created">2008/07/23 15:22</span>
       </tal:received>
     </span>
   </dt>
   <dd tal:attributes="class python:message['received'] and 'received' or 'sent'">
     <pre tal:content="message/message" class="messageBody">
-      The message
+      Meddelande
     </pre>
   </dd>
 </tal:thread>

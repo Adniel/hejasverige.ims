@@ -9,7 +9,7 @@
            i18n:domain="hejasverige.ims">
 
       <h1 class="documentFirstHeading" tal:content="context/Title">
-        Title
+        Titel
       </h1>
 
       <div metal:use-macro="here/global_statusmessage/macros/portal_message">
@@ -18,10 +18,10 @@
 
       <p class="discreet" tal:condition="not: view/getMessages">
         <span i18n:translate="no_sent_messages" tal:condition="view/sent" tal:omit-tag="python:1">
-          You have no sent messages
+          Du har inga skickade meddelanden
         </span>
         <span i18n:translate="no_received_messages" tal:condition="view/received" tal:omit-tag="python:1">
-          You have no received messages
+          Du har inga mottagna meddelanden
         </span>
       </p>
 
@@ -38,10 +38,10 @@
           </colgroup>
           <thead>
             <th class="nosort"></th>
-            <th i18n:translate="">Subject</th>
-            <th i18n:translate="" tal:condition="view/received">From</th>
-            <th i18n:translate="" tal:condition="view/sent">To</th>
-            <th i18n:translate="">Date</th>
+            <th i18n:translate="">Ämne</th>
+            <th i18n:translate="" tal:condition="view/received">Från</th>
+            <th i18n:translate="" tal:condition="view/sent">Till</th>
+            <th i18n:translate="">Datum</th>
             <th class="nosort" colspan="2"
                 tal:condition="python: view.received or view.hasAnyPerm"
                 tal:attributes="colspan python: (view.received and view.hasAnyPerm) and 2 or 1"></th>
@@ -59,7 +59,7 @@
                 <img src="++resource++message_read_icon.gif" tal:condition="message/read" title="read" alt="read" i18n:attributes="alt; title" />
                 <img src="++resource++message_icon.gif" tal:condition="not: message/read" title="unread" alt="unread" i18n:attributes="alt; title" />
                 <a href="" tal:content="message/title" tal:attributes="href message/url/base;">
-                  Title
+                  Titel
                 </a>
                 <img src="++resource++message_forwarded.gif" tal:condition="message/forwarded" alt="forwarded" i18n:attributes="alt" />
                 <img src="++resource++message_replied.gif" tal:condition="message/replied" alt="replied" i18n:attributes="alt" />
@@ -68,25 +68,25 @@
                 <a href="" tal:condition="message/sender" tal:content="python:message.get('sender', {}).get('fullname', '') or message.get('sender', {}).get('username', '')" 
                            tal:attributes="href string:${portal_url}/author/${message/sender/username|message/sender}"
                            tal:omit-tag="not: message/sender/username|nothing">
-                  Sender Name
+                  Avsändare
                 </a>
               </td>
               <td tal:condition="view/sent">
                 <tal:receiver repeat="receiver message/receiver">
                 <a href="" tal:content="python:receiver.get('fullname', '') or receiver.get('username', '')" tal:attributes="href string:${portal_url}/author/${receiver/username|nothing}" tal:omit-tag="not: receiver/username|nothing">
-                  Receiver Name
+                  Mottagare
                 </a><tal:sep condition="not: repeat/receiver/end">,</tal:sep>
                 </tal:receiver>
               </td>
               <td tal:content="message/created">2008/07/23 10:40</td>
               <td tal:condition="message/url/reply">
                 <a href="" tal:attributes="href message/url/reply" title="reply" i18n:attributes="title" tal:condition="message/sender">
-                  <img src="++resource++message_reply.gif" alt="reply" i18n:attributes="alt" /> <tal:reply i18n:translate="">reply</tal:reply>
+                  <img src="++resource++message_reply.gif" alt="reply" i18n:attributes="alt" /> <tal:reply i18n:translate="">svara</tal:reply>
                 </a>
               </td>
               <td tal:condition="message/url/forward">
                 <a href="" tal:attributes="href message/url/forward" title="forward" i18n:attributes="title">
-                  <tal:forward i18n:translate="">forward</tal:forward> <img src="++resource++message_forward.gif" alt="forward" i18n:attributes="alt" />
+                  <tal:forward i18n:translate="">vidarebefordra</tal:forward> <img src="++resource++message_forward.gif" alt="forward" i18n:attributes="alt" />
                 </a>
               </td>
             </tr>

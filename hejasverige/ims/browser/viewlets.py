@@ -10,16 +10,13 @@ class HejaSverigeIMSBarViewlet(ViewletBase):
     template = ViewPageTemplateFile('templates/ims_bar.pt')
 
     def render(self):
-        print 'Will now render the ims_bar.pt template if user is logged in...'
         mship = getToolByName(self.context, 'portal_membership')
         if mship.isAnonymousUser():
-            print 'User considered anonymous'
             return ''
         
         return self.template()
 
     def update(self):
-        print "Update before rendering viewlet for the ims_bar.pt"
         mship = getToolByName(self.context, 'portal_membership')
         if mship.isAnonymousUser():
             return
